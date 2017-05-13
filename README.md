@@ -34,5 +34,5 @@ web-ftp-client requires [Node.js](https://nodejs.org/) v4+ to run.
 $ git clone https://github.com/sunilmore690/web-ftp-client.git
 $ cd web-ftp-client
 $ npm install 
-$ npm run
+$ npm start
 ```
