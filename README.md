@@ -23,6 +23,9 @@ web-ftp-client uses a number of open source projects to work properly:
 *  [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [jQuery] - jQuery is a lightweight, "write less, do more", JavaScript library
 
+### Demo
+
+https://web-ftp-client.herokuapp.com
 
 ### Installation
 
