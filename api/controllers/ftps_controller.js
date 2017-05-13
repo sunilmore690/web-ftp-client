@@ -2,7 +2,8 @@ var config = require('config')
   , _ = require('lodash')
   , Jsftp = require('jsftp')
   , mime = require('mime')
-  , fs =require('fs');
+  , fs =require('fs')
+  , async = require('async');
 
 function quitConn(myFtp){
   myFtp.raw.quit(function(err, data) {
@@ -48,25 +49,27 @@ ftps.connect = function (req, res, next) {
 ftps.upload = function(req,res,next){
   console.log('req files',req.files)
   console.log('req body',req.body)
-  // res.send('successful')
-
+  // return res.send('successful')
+  // async.each
   
-  var filePath = req.files['uploadfile'].path;
-  var filename = req.files['uploadfile'].originalFilename;
-  var fileData = fs.readFileSync(filePath);
   try{
     var ftp = new Jsftp(req.session.ftp);
   }catch(e){
     return next({errors:[e],status:500})
   }
-  console.log('uploadfile',req.body.dir + filename)
-  ftp.put(fileData, req.body.dir + filename, function(hadError) {
-    if(hadError){
-      return next(hadError)
-    }else{
-      res.json({message:'File uploaded Successfully'})
-    }
-  });
+  async.eachSeries(req.files.uploadfile,function(file,callback){
+    var filePath = file.path;
+    var filename = file.originalFilename;
+    var fileData = fs.readFileSync(filePath);
+    console.log('uploadfile',req.body.dir + filename)
+    ftp.put(fileData, req.body.dir + filename, function(hadError) {
+       if(hadError) callback(hadError)
+       else callback();
+    });
+  },function(err){
+     if(err) return next(err)
+     else res.json({message:'Files Uploaded Successfully'})
+  })
 }
 ftps.list = function (req,res,next){
 
