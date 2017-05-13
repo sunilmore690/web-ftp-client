@@ -131,11 +131,12 @@ var FtpListView = Backbone.View.extend({
       }
     },
     deleteFile:function(event){
-      if (confirm("Are you sure,do you want to delete this file?") != true) {
+      var data = $(event.currentTarget).data();
+      if (confirm("Are you sure,do you want to delete this file ? "+data.name) != true) {
         return false;
       } 
       var that = this;
-      var data = $(event.currentTarget).data();
+      
       var delete_model = new deleteModel({path:this.model.get('dir') || '/',name:data.name});
       delete_model.save({},{
         success:function(){
