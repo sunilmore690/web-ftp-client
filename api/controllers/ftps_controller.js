@@ -48,9 +48,9 @@ ftps.connect = function (req, res, next) {
 ftps.upload = function(req,res,next){
   console.log('req files',req.files)
   console.log('req body',req.body)
-  res.send('successful')
+  // res.send('successful')
 
- 
+  
   var filePath = req.files['uploadfile'].path;
   var filename = req.files['uploadfile'].originalFilename;
   var fileData = fs.readFileSync(filePath);
