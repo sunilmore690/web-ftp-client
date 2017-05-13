@@ -1,0 +1,26 @@
+tr { cursor: pointer; cursor: hand; }
+#fileselector {
+    margin: 10px; 
+}
+#upload-file-selector {
+    display:none;   
+}
+.margin-correction {
+    margin-right: 10px;   
+}
+body.loading .universal-loader {
+  display: block;
+}
+.universal-loader {
+  display: none;
+  background-size: 100%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -50px 0 0 -50px;
+  z-index: 999999;
+  background: url('/images/heart_loader.gif') center center no-repeat;
+  background-size: 70%;
+}
