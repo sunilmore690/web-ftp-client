@@ -67,6 +67,7 @@ ftps.upload = function(req,res,next){
        else callback();
     });
   },function(err){
+     quitConn(ftp) 
      if(err) return next(err)
      else res.json({message:'Files Uploaded Successfully'})
   })
