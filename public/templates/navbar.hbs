@@ -10,7 +10,7 @@
         <a class="navbar-brand" href="#">
            <span style='color:white'>FTPClient</span>
         </a>
-        <a href="#" style="color:white;padding-top:12px" class="signout pull-right"><i class="fa fa-sign-out"></i> Logout</a>
+     
         
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,7 +18,7 @@
         <ul class="nav navbar-nav">
             {{#if ftp}}
             <li style='color:white;padding-top:12px' class='pull-right'>
-                <span class="pull-right hide ">{{ftp.user}}</span> &nbsp;&nbsp;&nbsp
+                <span class="pull-right  "> <i class="fa fa-sign-out"></i> {{ftp.user}}</span> &nbsp;&nbsp;&nbsp
                 <span class='pull-right'>&nbsp;&nbsp;</span>
             </li>
             {{/if}}
