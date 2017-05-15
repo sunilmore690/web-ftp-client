@@ -89,39 +89,18 @@ ftps.list = function (req,res,next){
       files = _.map(files,function(file){
           file.time = new Date(file.time);
           var perm = '';
-          if(file.userPermissions){
-             if(file.userPermissions.read) perm+='r'
-             else perm += '-'
-
-             if(file.userPermissions.write) perm+='w'
-             else perm += '-'
-
-             if(file.userPermissions.exec) perm+='x'
-             else perm += '-'
-
-          }
-         if(file.groupPermissions){
-             if(file.groupPermissions.read) perm+='r'
-             else perm += '-'
-
-             if(file.groupPermissions.write) perm+='w'
-             else perm += '-'
-
-             if(file.groupPermissions.exec) perm+='x'
-             else perm += '-'
-
-          }
-          if(file.otherPermissions){
-             if(file.otherPermissions.read) perm+='r'
-             else perm += '-'
-
-             if(file.otherPermissions.write) perm+='w'
-             else perm += '-'
-
-             if(file.otherPermissions.exec) perm+='x'
-             else perm += '-'
-
-          }
+          ['userPermissions','groupPermissions','otherPermissions'].forEach(function(permission_type){
+            if(file.hasOwnProperty(permission_type)){
+              ['read','write','exec'].forEach(function(permission){
+                var keyword ;
+                if(permission == 'read') keyword = 'r'
+                else if(permission == 'write') keyword = 'w'
+                else keyword = 'x'
+                if(file[permission_type][permission]) perm+=keyword
+                else perm += '-'
+              })     
+            }
+          })
           if(file.type != 0){
             file.type = 'Directory';
           }else{
