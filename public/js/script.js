@@ -51,6 +51,10 @@ Handlebars.registerHelper("when", function(operand_1, operator, operand_2, optio
     if (result) return options.fn(this);
     else return options.inverse(this);
 });
+Handlebars.registerHelper("formattedDate",function(date){
+  console.log('date',date)
+  return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+})
 var BaseModel = Backbone.Model.extend({});
 
 var FtpConnect = Backbone.Model.extend({
