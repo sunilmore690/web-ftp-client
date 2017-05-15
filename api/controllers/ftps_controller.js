@@ -13,6 +13,9 @@ function quitConn(myFtp){
 });
 }
 var ftps = {};
+if(!(fs.existsSync("./temp"))) {
+  fs.mkdirSync('./temp');
+}
 function getCookie (name,cookies){
   console.log('list',typeof list)
    var list = {},
@@ -38,7 +41,7 @@ ftps.connect = function (req, res, next) {
     else if(result && !result.isError){
       req.session.ftp = req.body
       res.json(req.body);
-    }else return next({errors:[text]})
+    }else return next({errors:[result.text]})
   })
 
   }catch(e){
