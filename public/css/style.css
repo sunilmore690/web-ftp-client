@@ -24,3 +24,52 @@ body.loading .universal-loader {
   background: url('/images/heart_loader.gif') center center no-repeat;
   background-size: 70%;
 }
+/* Override Font-Awesome */
+/* Color Added for Clarity */
+.fa-file-text-o:before, 
+.fa-file-txt-o:before {
+    content:"\f0f6";
+    color: #808080;
+}
+.fa-file-word-o:before, 
+.fa-file-doc-o:before, 
+.fa-file-docx-o:before {
+    content:"\f1c2";
+    color: #2277bb;
+}
+.fa-file-excel-o:before, 
+.fa-file-xls-o:before, 
+.fa-file-xlsx-o:before {
+    content:"\f1c3";
+    color: #22bb66;
+}
+.fa-file-powerpoint-o:before, 
+.fa-file-ppt-o:before, 
+.fa-file-pptx-o:before {
+    content:"\f1c4";
+    color: #ff5533;
+}
+.fa-file-photo-o:before, 
+.fa-file-picture-o:before, 
+.fa-file-image-o:before, 
+.fa-file-bmp-o:before, 
+.fa-file-gif-o:before, 
+.fa-file-jpeg-o:before, 
+.fa-file-jpg-o:before, 
+.fa-file-png-o:before {
+    content:"\f1c5";
+    color: #ffaa00;
+}
+.fa-file-archive-o:before, 
+.fa-file-bz2-o:before, 
+.fa-file-dmg-o:before, 
+.fa-file-gz-o:before, 
+.fa-file-gzip-o:before, 
+.fa-file-iso-o:before, 
+.fa-file-rar-o:before, 
+.fa-file-tar-o:before, 
+.fa-file-tgz-o:before, 
+.fa-file-zip-o:before {
+    content:"\f1c6";
+    color: #333355;
+}

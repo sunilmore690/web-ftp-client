@@ -42,7 +42,7 @@
           <tbody>
             {{#each ftpdirlist}}
               <tr>
-                <td><span><i class="fa {{#when type 'eq' 'Directory'}} fa-folder {{else}}fa-file-o {{/when}} " aria-hidden="true" style='color:#54b2ef'></i></span> &nbsp; 
+                <td><span><i class="fa {{#when type 'eq' 'Directory'}} fa-folder {{else}} {{#fileIcon name}} {{/fileIcon}} {{/when}} " aria-hidden="true" {{#when type 'eq' 'Directory'}}style='color:#54b2ef' {{/when}}></i></span> &nbsp; 
                   <a href="#" class="list" data-type="{{#when type 'eq' 'Directory'}}folder{{else}} file{{/when}}" data-name='{{name}}'>{{name}}</a>
                
                  </td>

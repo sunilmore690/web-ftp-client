@@ -55,6 +55,17 @@ Handlebars.registerHelper("formattedDate",function(date){
   console.log('date',date)
   return moment(date).format('MMMM Do YYYY, h:mm:ss a');
 })
+Handlebars.registerHelper('fileIcon',function(target){
+  var allowedExtensions = ["txt", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "bmp", "pdf","gif", "jpeg", "jpg", "png", "bz2", "dmg", "gz", "gzip", "iso", "rar", "tar", "tgz", "zip"];
+
+  var targetNameParts = target.split(".");
+  var extensionPart = targetNameParts.length;
+  var extension = 
+        ($.inArray(targetNameParts[extensionPart - 1], allowedExtensions) > -1)? 
+        targetNameParts[extensionPart - 1] : "txt";
+    
+  return 'fa-file-'+extension+'-o';
+})
 var BaseModel = Backbone.Model.extend({});
 
 var FtpConnect = Backbone.Model.extend({
