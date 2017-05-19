@@ -251,8 +251,17 @@ var FtpListView = Backbone.View.extend({
           TemplateManager.get('ftp_list', function(template) {
            
               var template = Handlebars.compile(template);
+
               var data = JSON.parse(JSON.stringify(that.model.attributes))
-               data.dirs.pop();
+              data.dirs.pop();
+              if(data.ftpdirlist){
+                var total = data.ftpdirlist.length;
+
+                var directories = _.filter(data.ftpdirlist,{type:'Directory'});
+                var dirtotal = directories.length;
+                var filetotal = total - dirtotal;
+                _.extend(data,{size_info:{total:total,dir:dirtotal,file:filetotal}})
+              }
               var html = template(data);
               that.$el.html(html);
               that.postRender();
