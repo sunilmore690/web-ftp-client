@@ -73,3 +73,6 @@ body.loading .universal-loader {
     content:"\f1c6";
     color: #333355;
 }
+.navbar-right ul{
+  color:'white';
+}

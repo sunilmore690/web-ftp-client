@@ -1,4 +1,28 @@
-  <div class="container">
+<div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style='color:white'>FTPClient</a>
+
+            <span href="./" class='visible-xs pull-right' style='color: white;padding-top: 15px'><i class="fa fa-user"></i>&nbsp;{{ftp.user}} </span>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            {{#if ftp}}
+            <ul class="nav navbar-nav navbar-right " >
+              <li class="hidden-xs"><a href="./" style='color:white'><i class="fa fa-user"></i>&nbsp;{{ftp.user}} <span class="sr-only">(current)</span></a></li>
+              <li><a href="#" class='signout' style='color:white'><i class="fa fa-sign-out"></i> Logout</a></li>
+              
+            </ul>
+            {{/if}}
+          </div><!--/.nav-collapse -->
+        </div>
+
+
+  <div class="container hide">
           <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
