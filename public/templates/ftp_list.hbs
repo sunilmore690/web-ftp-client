@@ -31,40 +31,9 @@
           {{size_info.file}} files and {{size_info.dir}} Folders
         </label>
      </div>
-     <div>
-       <div class='row hide'>
-         <div class='col-sm-3 col-xs-3'>Name</div>
-         <div class='col-sm-1 col-xs-2'>Type</div>
-         <div class='col-sm-1 col-xs-2'>Size</div>
-         <div class='col-sm-2 col-xs-2'>Permission</div>
-         <div class='col-sm-2 col-xs-3'>Modification Time</div>
-         <div class='col-sm-3 col-xs-3 hidden-xs'>Actions</div>       
-       </div>
-       {{#each ftpdirlist}}
-       <div class='row hide' style='padding-top:3px'>
-        
-          <div class='col-sm-3 col-xs-3'>
-            <span>
-              <i class="fa {{#when type 'eq' 'Directory'}} fa-folder {{else}} {{#fileIcon name}} {{/fileIcon}} {{/when}} " aria-hidden="true" {{#when type 'eq' 'Directory'}}style='color:#54b2ef' {{/when}}></i>
-            </span>
-                  <a href="#" class="list" data-type="{{#when type 'eq' 'Directory'}}folder{{else}} file{{/when}}" data-name='{{name}}'>{{name}}</a>
-          </div>
-          <div class='col-sm-1 col-xs-2'>{{type}}</div>
-          <div class='col-sm-1 col-xs-2'>{{#humanFileSize size}}{{/humanFileSize}}</div>
-          <div class='col-sm-2 col-xs-2'>{{perm}}</div>
-          <div class='col-sm-2 col-xs-3'>{{#formattedDate time}}{{/formattedDate}}</div>
-          <div class='col-sm-3 col-xs-3'>
-             <input type='button' class="btn btn-xs action" value="Rename" data-action='rename' data-name='{{name}}'/>
-
-                  {{#when type 'eq' 'File'}}
-                    <span><a href='/api/ftp/download?path={{../dir}}&name={{name}}' target='_blank' class="btn btn-xs action" value="Downoad" data-action='download' data-name='{{name}}'>Download </a></span>
-                     <span><a href='#' class="btn btn-xs btn-danger delete"   data-name='{{name}}'>Delete </a></span>
-                  {{/when}}
-          </div>
-      
-       </div>
-      {{/each}}
-        <table class="table striped" {{#if isMobile}}style='width:800px;' {{/if}}>
+     <div style='overflow-x:scroll'>
+       
+        <table class="table striped" {{#if isMobile}}style='width:800px'{{/if}}>
           <thead>
               <th>Name</th>
               <th>Type</th>
@@ -82,10 +51,10 @@
                
                  </td>
                 <td>{{type}}</td>
-                <td>{{#humanFileSize size}}{{/humanFileSize}}</td>
+                <td width='9%'>{{#humanFileSize size}}{{/humanFileSize}}</td>
                 <td>{{perm}}</td>
                 <td>{{#formattedDate time}}{{/formattedDate}}</td>
-                <td width='30%'>
+                <td width='25%'>
                 
                   <input type='button' class="btn btn-xs action" value="Rename" data-action='rename' data-name='{{name}}'/>
 
