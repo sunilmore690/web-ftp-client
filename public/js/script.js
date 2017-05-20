@@ -53,7 +53,8 @@ Handlebars.registerHelper("when", function(operand_1, operator, operand_2, optio
 });
 Handlebars.registerHelper("formattedDate",function(date){
   console.log('date',date)
-  return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+  return new Date(date).toLocaleString()
+  // return moment(date).format('MMMM Do YYYY, h:mm:ss a');
 })
 Handlebars.registerHelper('fileIcon',function(target){
   var allowedExtensions = ["txt", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "bmp", "pdf","gif", "jpeg", "jpg", "png", "bz2", "dmg", "gz", "gzip", "iso", "rar", "tar", "tgz", "zip"];
