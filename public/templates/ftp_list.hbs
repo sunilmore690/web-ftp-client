@@ -77,7 +77,7 @@
           <tbody>
             {{#each ftpdirlist}}
               <tr>
-                <td width='30%'><span><i class="fa {{#when type 'eq' 'Directory'}} fa-folder {{else}} {{#fileIcon name}} {{/fileIcon}} {{/when}} " aria-hidden="true" {{#when type 'eq' 'Directory'}}style='color:#54b2ef' {{/when}}></i></span> &nbsp; 
+                <td width=''><span><i class="fa {{#when type 'eq' 'Directory'}} fa-folder {{else}} {{#fileIcon name}} {{/fileIcon}} {{/when}} " aria-hidden="true" {{#when type 'eq' 'Directory'}}style='color:#54b2ef' {{/when}}></i></span> &nbsp; 
                   <a href="#" class="list" data-type="{{#when type 'eq' 'Directory'}}folder{{else}} file{{/when}}" data-name='{{name}}'>{{name}}</a>
                
                  </td>
@@ -85,7 +85,7 @@
                 <td>{{#humanFileSize size}}{{/humanFileSize}}</td>
                 <td>{{perm}}</td>
                 <td>{{#formattedDate time}}{{/formattedDate}}</td>
-                <td>
+                <td width='30%'>
                 
                   <input type='button' class="btn btn-xs action" value="Rename" data-action='rename' data-name='{{name}}'/>
 
