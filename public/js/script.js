@@ -356,7 +356,7 @@ var HomeView = Backbone.View.extend({
               window.App.User = that.model.attributes;
               
               window.sessionStorage.setItem('ftp',JSON.stringify({host:that.model.get('host'),user:that.model.get('user')}))
-              window.location = window.location.reload()
+               window.location.reload()
             },
             error: function(err) {
                 window.App.flash("Something went wrong. Please try again", 'error');
