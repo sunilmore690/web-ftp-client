@@ -289,7 +289,7 @@ var NavBarView = Backbone.View.extend({
     request.success(function(result) {
       window.sessionStorage.removeItem('currentDir');
       window.App.flash('Logout Successfully','success')
-      window.location = '/';      
+      window.location.reload()      
     });
 
     request.error(function(jqXHR, textStatus, errorThrown) {
@@ -356,7 +356,7 @@ var HomeView = Backbone.View.extend({
               window.App.User = that.model.attributes;
               
               window.sessionStorage.setItem('ftp',JSON.stringify({host:that.model.get('host'),user:that.model.get('user')}))
-              window.location = '/'
+              window.location = window.location.reload()
             },
             error: function(err) {
                 window.App.flash("Something went wrong. Please try again", 'error');
