@@ -25,7 +25,7 @@ web-ftp-client uses a number of open source projects to work properly:
 
 ### Demo
 
-https://web-ftp-client.herokuapp.com
+https://sunilmore.com/webftp/
 
 ### Installation
 
