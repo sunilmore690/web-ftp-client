@@ -25,7 +25,7 @@ web-ftp-client uses a number of open source projects to work properly:
 
 ### Demo
 
-https://sunilmore.com/webftp/
+https://webftp.sunilmore.com/
 
 ### Installation
 
